@@ -194,8 +194,8 @@ class UNet(Model):
 '''
 callbacks = EarlyStopping(monitor='loss', patience=5)
 unet = UNet(shape)
-unet.compile(optimizer=Adam(1e-5), loss='categorical_crossentropy')
-unet.fit(train_x, train_y, epochs=100, shuffle=True, callbacks=callbacks)
+unet.compile(optimizer='rmsprop', loss='categorical_crossentropy')
+unet.fit(train_x, train_y, epochs=500, shuffle=True, callbacks=callbacks)
 
 ''' the predictions from test datasets
 '''
@@ -216,7 +216,12 @@ def visualize(img_x, img_y, model, batch_no):
     img_pred = model.predict(img_x)
     def plt_imshow(array, cmap='gray'):
         return plt.imshow(array, cmap=cmap, origin='lower')
-
+     
+    img_pred[:,:,:,0][img_pred[:,:,:,0]>=0.6]=1
+    img_pred[:,:,:,0][img_pred[:,:,:,0]<0.6]=0
+    img_pred[:,:,:,1][img_pred[:,:,:,1]>=0.6]=1
+    img_pred[:,:,:,1][img_pred[:,:,:,1]<0.6]=0
+    
     plt.subplot(2,2,1)
     plt.title("Mask (blue)")
     plt_imshow(img_y[batch_no,:,:,0])
@@ -240,7 +245,5 @@ def visualize(img_x, img_y, model, batch_no):
 visualize(test_x, test_y, unet, 0)
 plt.show()
 
-plt.plot(test_y[0,:,:,0].flatten(), img_pred[0,:,:,0].flatten(), 'k.')
-plt.show()
 
 
