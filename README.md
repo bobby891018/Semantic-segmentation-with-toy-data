@@ -11,5 +11,8 @@ In this work, I learnt how to use the Unet model to do the semantic segmentation
 
 3/ I further generate the well-labeled pixel-wise mask for each star in the 50 generated. I label the blue stars as [1,0], red stars as [0,1], and background as [0,0] in the mask images. 
 
+Example of my generated training dataset (see below)
+![image](https://github.com/bobby891018/Semantic-segmentation-with-toy-data/blob/master/Figures/train.png)
+
 
 ![image](https://github.com/bobby891018/Semantic-segmentation-with-toy-data/blob/master/Figures/results.png)
