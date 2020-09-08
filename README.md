@@ -1,7 +1,7 @@
 # Semantic-segmentation-with-toy-data
-In this work, I learnt how to use the Unet model to do the semantic segmentation in my own generated datasets. 
+In this work, I learnt how to use the UNet model to do the semantic segmentation in my own generated datasets. 
 
-(I) About my own generated datasets.
+(I) Briefly introductions of my own generated datasets.
 
 1/ I assumed a simple Universe which only contains two kinds of stars (blue and red). 
 
@@ -15,4 +15,8 @@ Example of my generated training dataset (see below)
 ![image](https://github.com/bobby891018/Semantic-segmentation-with-toy-data/blob/master/Figures/train.png)
 
 
+(II) Briefly introductions of the training model (UNet)
+
+
+Example of the results (see below)
 ![image](https://github.com/bobby891018/Semantic-segmentation-with-toy-data/blob/master/Figures/results.png)
